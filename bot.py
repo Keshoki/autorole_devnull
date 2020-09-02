@@ -15,7 +15,7 @@ async def on_ready():
 
 @bot.event
 async def on_message(message):
-    id = bot.get_guild(718087915762221067)
+    id = bot.get_guild(706679716907843635)
     user = message.author.name
     msg = message.content
     if msg == "!users":
