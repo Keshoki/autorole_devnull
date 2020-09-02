@@ -30,6 +30,8 @@ async def on_raw_reaction_add(payload):
         guild_id = payload.guild_id
         guild = discord.utils.find(lambda g : g.id == guild_id, bot.guilds)
 
+        if payload.emoji.name == 'htb':
+            role = discord.utils.get(guild.roles, name='HTB')
         if payload.emoji.name == 'cpp':
             role = discord.utils.get(guild.roles, name='C++')
         elif payload.emoji.name == 'python':
@@ -73,6 +75,8 @@ async def on_raw_reaction_remove(payload):
         guild_id = payload.guild_id
         guild = discord.utils.find(lambda g : g.id == guild_id, bot.guilds)
 
+        if payload.emoji.name == 'htb':
+            role = discord.utils.get(guild.roles, name='HTB')
         if payload.emoji.name == 'cpp':
             role = discord.utils.get(guild.roles, name='C++')
         elif payload.emoji.name == 'python':
