@@ -11,7 +11,7 @@ bot.remove_command("help")
 async def on_ready():
     print(chalk.green("Online vagyok!"))
     print(chalk.blue(f"{len(bot.guilds)} szerveren vagyok fent"))
-    await bot.change_presence(status = discord.Status.online, activity=discord.Game(name = "/dev/null"))
+    await bot.change_presence(status = discord.Status.online, activity=discord.Game(name = "Sex on the beach"))
 
 @bot.event
 async def on_message(message):
