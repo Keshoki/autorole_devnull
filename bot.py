@@ -3,7 +3,7 @@ import discord, chalk
 
 import os
 
-bot = commands.Bot(command_prefix="!", status = discord.Status.idle, activity=discord.Game(name = "waking up"))
+bot = commands.Bot(command_prefix="!", status = discord.Status.idle, activity=discord.Game(name = "Ébredezek ne nézzé.."))
 
 bot.remove_command("help")
 
