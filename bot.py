@@ -156,4 +156,4 @@ async def userinfo(ctx, member: discord.Member = None):
 
 
 
-bot.run("NDcxMzYzNDA0NDU2Nzg3OTc4.D27w3Q.4OO2GKCnEsx0DfAsQUk3tggcEik")
+bot.run(os.environ['TOKEN'])
