@@ -132,10 +132,6 @@ membercodes = {}
 basic_role = "user"
 
 @bot.event
-async def on_ready():
-    print("I'm ready!")
-
-@bot.event
 async def on_member_join(member):
     login_code = str(randint(10000000,99999999))
     membercodes[member.name+"#"+member.discriminator] = str(login_code)
