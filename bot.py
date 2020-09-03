@@ -1,6 +1,6 @@
 from discord.ext import commands
 import discord, chalk
-
+from random import randint
 import os
 
 bot = commands.Bot(command_prefix="!", status = discord.Status.idle, activity=discord.Game(name = "Ébredezek ne nézzé.."))
@@ -127,6 +127,29 @@ async def on_message_delete(message):
 @bot.command()
 async def kill(ctx):
     await bot.logout()
+        
+membercodes = {}
+basic_role = "user"
+
+@bot.event
+async def on_ready():
+    print("I'm ready!")
+
+@bot.event
+async def on_member_join(member):
+    login_code = str(randint(10000000,99999999))
+    membercodes[member.name+"#"+member.discriminator] = str(login_code)
+    await member.send("Amennyiben elfogadod a szabályzatot, küld el ezt: " + login_code + " A join szobába! :)")
+
+@bot.event
+async def on_message(message):
+    try:
+        if membercodes[str(message.author)] == str(message.content):
+            role = discord.utils.get(message.author.guild.roles, name=basic_role)
+            await message.author.add_roles(role)
+            del membercodes[str(message.author)]
+    except:
+        pass
 
 @bot.command()
 async def ping(ctx):
